@@ -15,7 +15,7 @@
     "pretest": "npm run lint",
     "print-env": "print-env",
     "lint": "eslint --fix cypress app/assets/js/scripts.js",
-    "lint:yaml": "find . -type f -name '*.yml' -print0 | xargs -0 yamllint || true",
+    "lint:yaml": "find . -type f -name '*.yml' ! -path './node_modules/*' -print0 | xargs -0 yamllint || true",
     "colon:names": "colon-names",
     "e2e": "cypress run",
     "e2e:chrome": "cypress run --browser chrome",
