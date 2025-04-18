@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Install dependencies
@@ -16,10 +16,5 @@ jobs:
       - name: Build the app
         run: npm run build
 
-      - name: Start server and run Cypress tests
-        uses: cypress-io/github-action@v2
-        with:
-          start: npm start
-          wait-on: 'http://localhost:8080'
-          wait-on-timeout: 60
-          browser: chrome
+      - name: Run Cypress tests
+        run: npm run local:run
